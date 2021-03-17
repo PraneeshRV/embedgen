@@ -1,0 +1,88 @@
+<html prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="theme-color" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <link rel="icon" href="" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h2>Embed Generator</h2>
+      <input type="text" name="name" id="headertext" placeholder="Header Text" />
+      <input type="text" name="name" id="titletext" placeholder="Title Text" />
+      <input type="text" name="name" id="desctext" placeholder="Description Text" />
+      <input type="text" name="name" id="imgurl" placeholder="Image Url (https://abc.com/abc.png)" />
+      <input type="text" name="name" id="color" placeholder="Color Without Hashtag (FFFFFF)" />
+      <input type="text" name="name" id="redirecturl" placeholder="Redirect Url (https://abc.com/abc/)" />
+      <button onclick="generate()" id="button">Generate</button>
+      <input type="text" name="name" id="output" placeholder="Your output will appear here" />
+      <button onclick="copyoutput()" id="button">Copy output</button>
+      <p>Tayhay#0968</p>
+    </div>
+    <script>
+      function generate() {
+        var headertext = document.getElementById("headertext").value;
+        var titletext = document.getElementById("titletext").value;
+        var desctext = document.getElementById("desctext").value;
+        var imgurl = document.getElementById("imgurl").value;
+        var color = document.getElementById("color").value;
+        var redirecturl = document.getElementById("redirecturl").value;
+        var output = document.getElementById("output").value;
+
+        if (titletext.trim() == "" && desctext.trim() == "" && headertext.trim() == "") {
+          return alert("You need a title or description! Or else the embed won't work.");
+        }
+
+        headertext = headertext.replace(/ /g, "+");
+        titletext = titletext.replace(/ /g, "+");
+        desctext = desctext.replace(/ /g, "+");
+
+        var link = "path-to-embed.php?";
+
+        if (!headertext.trim() == "") {
+          link += "header=" + headertext + "&";
+        }
+
+        if (!titletext.trim() == "") {
+          link += "title=" + titletext + "&";
+        }
+
+        if (!desctext.trim() == "") {
+          link += "desc=" + desctext + "&";
+        }
+
+        if (!imgurl.trim() == "") {
+          link += "imgurl=" + imgurl + "&";
+        }
+
+        if (!color.trim() == "") {
+          link += "color=" + color + "&";
+        }
+
+        if (!redirecturl.trim() == "") {
+          link += "redirurl=" + redirecturl + "&";
+        }
+
+        link = link.slice(0, link.length - 1);
+
+        document.getElementById("output").value = link;
+      }
+
+      function copyoutput() {
+        var copyText = document.getElementById("output");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+      }
+    </script>
+  </body>
+</html>
