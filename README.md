@@ -1,4 +1,4 @@
-# anonclient
+# embedgen
 
 ☄️ generate embeds for discord
 
