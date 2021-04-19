@@ -42,9 +42,12 @@
           return alert("You need a title or description! Or else the embed won't work.");
         }
 
-        if (!redirecturl.startsWith("https://")) {
-          return alert("Please make sure your link starts with https://");
+        if (redirecturl.value != "") {
+          if (!redirecturl.startsWith("https://")) {
+            return alert("Please make sure your link starts with https://");
+          }
         }
+
 
         headertext = headertext.replace(/ /g, "+");
         titletext = titletext.replace(/ /g, "+");
