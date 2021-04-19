@@ -42,7 +42,7 @@
           return alert("You need a title or description! Or else the embed won't work.");
         }
 
-        if (redirecturl.value != "") {
+        if (redirecturl != "") {
           if (!redirecturl.startsWith("https://")) {
             return alert("Please make sure your link starts with https://");
           }
